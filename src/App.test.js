@@ -16,11 +16,11 @@ it("should increment", () => {
 
 it("reads and updates localStorage", () => {
   window.localStorage.setItem("count", 3);
-  const { container } = render(<Counter />);
+  const { container, rerender } = render(<Counter />);
   const button = container.firstChild.firstChild;
-
   expect(button.textContent).toBe("3");
   fireEvent.click(button);
   expect(button.textContent).toBe("4");
+  rerender(<Counter />);
   expect(window.localStorage.getItem("count")).toBe("4");
 });
