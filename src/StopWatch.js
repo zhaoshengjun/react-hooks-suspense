@@ -49,6 +49,11 @@ function StopWatch() {
       </button>
       <button onClick={watchOne.handleClearClick}>Clear</button>
       <hr />
+      <strong>Lapse Difference:</strong>
+      <span>
+        {watchOne.lapse - watchTwo.lapse}
+        ms
+      </span>
       <hr />
       <label style={{ fontSize: "5em", display: "block" }}>
         {watchTwo.lapse}
