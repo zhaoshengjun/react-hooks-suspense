@@ -17,7 +17,11 @@ function StopWatch() {
     setRunning(!running);
   };
 
-  const handleClearClick = () => {};
+  const handleClearClick = () => {
+    clearInterval(intervalRef.current);
+    setLapse(0);
+    setRunning(false);
+  };
   return (
     <div style={{ textAlign: "center" }}>
       <label style={{ fontSize: "5em", display: "block" }}>
