@@ -21,7 +21,7 @@ function StopWatch() {
     } else {
       const startTime = Date.now() - lapse;
       intervalRef.current = setInterval(() => {
-        setState({ lapese: Date.now() - startTime });
+        setState({ lapse: Date.now() - startTime });
       }, 0);
     }
     setState({ running: !running });
