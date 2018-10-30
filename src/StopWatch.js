@@ -1,9 +1,13 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 function StopWatch() {
   const [lapse, setLapse] = useState(0);
   const [running, setRunning] = useState(false);
   const intervalRef = useRef(null);
+
+  useEffect(() => {
+    return () => clearInterval(intervalRef.current);
+  }, []);
 
   const handleRunClick = () => {
     if (running) {
