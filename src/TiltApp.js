@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import Tilt from "./tilt";
+import React, { useState, Suspense } from "react";
+
+const Tilt = React.lazy(() => import("./tilt"));
 
 function useToggle(init = false) {
   const [on, setOn] = useState(init);
@@ -17,9 +18,11 @@ function App() {
       </label>
       <div style={{ height: 150, width: 200 }} className="totally-centered">
         {showTilt ? (
-          <Tilt>
-            <div className="totally-centered">vanilla-tilt.js</div>
-          </Tilt>
+          <Suspense fallback={<div>loading...</div>}>
+            <Tilt>
+              <div className="totally-centered">vanilla-tilt.js</div>
+            </Tilt>
+          </Suspense>
         ) : null}
       </div>
     </div>
